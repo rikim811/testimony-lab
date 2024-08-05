@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Testimony Land</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <img src="../assets/logo-500x200.png" alt="Testimony Land Logo">
+      </div>
+    </div>
+  </header>
+
+  <section id="signup">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <small id="usernameAvailability"></small>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="name" placeholder="Name" required>
+        <small id="nameInappropriate"></small>
+        <input type="password" id="password" placeholder="Password" required>
+        <small id="passwordStrength"></small>
+        <div class="password-checklist">
+          <ul>
+            <li id="lowercase">One lowercase character</li>
+            <li id="uppercase">One uppercase character</li>
+            <li id="number">One number</li>
+            <li id="length">8 characters minimum</li>
+          </ul>
+        </div>
+        <label for="nextStep">What would you like to do next?</label>
+        <select id="nextStep" required>
+          <option value="profile">Edit Profile</option>
+          <option value="testimony">Edit Testimony</option>
+        </select>
+        <input type="submit" value="Sign Up">
+        <div class="alternative-option">
+          <p>Already have an account? <a href="../login/index.html">Login Instead</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

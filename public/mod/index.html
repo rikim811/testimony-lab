@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mod Only - Testimony Land</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <img src="../assets/logo-500x200.png" alt="Testimony Land Logo" style="height: 100px;">
+      </div>
+    </div>
+  </header>
+
+  <section id="modlog">
+    <div class="container">
+      <h1>Moderator Log</h1>
+      <div id="searchSection">
+        <div class="searchBox">
+          <input type="text" id="searchQuery" placeholder="Search...">
+          <select id="searchType">
+            <option value="username">Username</option>
+            <option value="name">Name</option>
+            <option value="socialMedia">Social Media</option>
+            <option value="tags">Tags</option>
+            <option value="testimony">Words in Testimony</option>
+            <option value="comments">Comments</option>
+          </select>
+          <button id="searchButton">Search</button>
+          <button id="showAllButton">Show All</button>
+        </div>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </section>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

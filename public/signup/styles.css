@@ -1,0 +1,156 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f3ff;
+  color: #546bd6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+header {
+  background: #546bd6;
+  color: #fff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #f0f3ff 3px solid;
+  text-align: center;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header li {
+  display: inline;
+  padding: 0 20px;
+}
+
+header #branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header #branding img {
+  height: auto;
+  width: 70px;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #546bd6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"], form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+form input[type="submit"] {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  background: #546bd6;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background: #4353b0;
+}
+
+form label, form small {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+form select {
+  appearance: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+form select:focus {
+  outline: none;
+  border-color: #546bd6;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #546bd6;
+}
+
+.password-checklist {
+  margin-bottom: 15px;
+}
+
+.password-checklist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.password-checklist li {
+  font-size: 14px;
+  color: red;
+}
+
+.password-checklist li.valid {
+  color: green;
+}
+
+/* Ensure to place this in your styles.css */
+.alternative-option {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.alternative-option p {
+  color: #546bd6;
+}
+
+.alternative-option a {
+  color: #4353b0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.alternative-option a:hover {
+  text-decoration: underline;
+}

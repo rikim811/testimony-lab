@@ -1,0 +1,201 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f3ff;
+  color: #546bd6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+header {
+  background: #546bd6;
+  color: #fff;
+  padding: 10px 0;
+  border-bottom: #f0f3ff 3px solid;
+}
+
+button#searchButton {
+  padding: 5px 10px;
+  font-size: 14px;
+  height: 32px;
+  background-color: #fff;
+  color: #546bd6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#searchButton:hover {
+  background-color: #f0f3ff;
+  color: #4353b0;
+}
+
+#headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header li {
+  display: inline;
+  padding: 0 10px;
+}
+
+header #branding {
+  display: flex;
+  align-items: center;
+}
+
+header #branding img {
+  height: 50px;
+}
+
+button, input[type="submit"], .navButton {
+  display: inline-block;
+  height: 40px;
+  background: #546bd6;
+  color: #fff;
+  border: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+button:hover, input[type="submit"]:hover, .navButton:hover {
+  background: #4353b0;
+}
+
+.hidden {
+  display: none;
+}
+
+#editTestimony, #newComment {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#editTestimony:focus, #newComment:focus {
+  outline: none;
+  border-color: #4353b0;
+}
+
+#buttonGroup {
+  margin-top: 10px;
+}
+
+#commentList {
+  margin-top: 20px;
+}
+
+.comment {
+  background-color: #fff;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  margin-left: 10px;
+}
+
+/* Styles for tags */
+.tag {
+  display: inline-block;
+  background-color: #546bd6;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.tag span {
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tag span:hover {
+  color: #f0f3ff;
+}
+
+#tagContainer {
+  margin-top: 10px;
+}
+
+#tagInput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#testimonyTitle {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+#testimonyBox {
+  background-color: #fff;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  /* white-space: pre-wrap; */
+  line-height: 1.5; /* Ensures proper line spacing */
+}
+
+#testimonyText {
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+#editTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#testimonyAuthor {
+  font-size: 16px;
+  margin-top: 10px;
+}

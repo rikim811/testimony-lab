@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Testimony Land</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <img src="../assets/logo-500x200.png" alt="Testimony Land Logo" style="height: 100px;">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index/index.html">Home</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="dashboard">
+    <div class="container">
+      <h1>Your Testimony</h1>
+      <form id="testimonyForm">
+        <textarea id="testimony" placeholder="Write your testimony here..." rows="10"></textarea>
+        <input type="submit" value="Save Testimony">
+      </form>
+    </div>
+  </section>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAT-8LnUDjSG1DOUQ6kv6STFd2c2EL5OeQ",
+      authDomain: "testimony-land.firebaseapp.com",
+      projectId: "testimony-land",
+      storageBucket: "testimony-land.appspot.com",
+      messagingSenderId: "1025749506188",
+      appId: "1:1025749506188:web:3f2c1ff0731480097503a9",
+      measurementId: "G-QSLJLYWCHK"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const docRef = db.collection('users').doc(user.uid);
+        const docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          document.getElementById('testimony').value = docSnap.data().testimony;
+        } else {
+          console.log('No such document!');
+        }
+      } else {
+        window.location.href = '../login/index.html';
+      }
+    });
+
+    document.getElementById('testimonyForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const testimony = document.getElementById('testimony').value;
+
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          await db.collection('users').doc(user.uid).set({ testimony }, { merge: true });
+          alert('Testimony saved!');
+        } else {
+          window.location.href = '../login/index.html';
+        }
+      } catch (error) {
+        console.error('Error saving testimony: ', error);
+      }
+    });
+
+    document.getElementById('logout').addEventListener('click', async (e) => {
+      e.preventDefault();
+      await auth.signOut();
+      window.location.href = '../index/index.html';
+    });
+  </script>
+</body>
+</html>
