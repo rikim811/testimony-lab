@@ -244,3 +244,7 @@ function displayComments(testimonyId) {
 }
 
 document.getElementById('tagInput').addEventListener('input', updateFormTags);
+
+document.getElementById('branding').addEventListener('click', () => {
+  window.location.href = '../index';
+});

@@ -101,3 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNavLinks(user);
   });
 });
+
+document.getElementById('branding').addEventListener('click', () => {
+  window.location.href = '../index';
+});

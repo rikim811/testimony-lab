@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f3ff;
@@ -15,9 +16,31 @@ body {
 header {
   background: #546bd6;
   color: #fff;
-  padding-top: 30px;
-  min-height: 70px;
+  padding: 10px 0;
   border-bottom: #f0f3ff 3px solid;
+}
+
+#headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header #branding {
+  display: flex;
+  align-items: center;
+}
+
+header #branding img {
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  gap: 20px;
 }
 
 header a {
@@ -30,34 +53,286 @@ header a {
 header ul {
   padding: 0;
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 header li {
-  float: right;
   display: inline;
-  padding: 0 20px 0 20px;
+  padding: 0 10px;
 }
 
-header #branding {
-  float: left;
+header a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
-header #branding img {
-  height: 50px;
+header a:hover {
+  color: #f0f3ff;
 }
 
-button, input[type="submit"] {
+button, input[type="submit"], .navButton {
   display: inline-block;
   height: 40px;
   background: #546bd6;
   color: #fff;
   border: 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
   cursor: pointer;
   text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 10px;
+  border-radius: 5px;
 }
 
-button:hover, input[type="submit"]:hover {
+button#searchButton {
+  padding: 5px 10px;
+  font-size: 14px;
+  height: 32px;
+  background-color: #fff;
+  color: #546bd6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#searchButton:hover {
+  background-color: #f0f3ff;
+  color: #4353b0;
+}
+
+header a:hover {
+  color: #f0f3ff;
+}
+
+#search {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#searchForm input[type="text"] {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 32px;
+  width: 300px;
+}
+
+#searchForm button {
+  padding: 5px 10px;
+  font-size: 14px;
+  height: 32px;
+  background-color: #fff;
+  color: #546bd6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#searchForm button:hover {
+  background-color: #546bd6;
+  color: #fff;
+}
+
+#searchResults {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.resultItem {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.resultItem p {
+  margin: 0;
+  flex: 1;
+}
+
+.resultItem button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #546bd6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-left: 10px;
+}
+
+.resultItem button:hover {
+  background-color: #4353b0;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tag {
+  display: inline-block;
+  background-color: #546bd6;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+button:hover, input[type="submit"]:hover, .navButton:hover {
   background: #4353b0;
+}
+
+.hidden {
+  display: none;
+}
+
+#editTestimony, #newComment {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#editTestimony:focus, #newComment:focus {
+  outline: none;
+  border-color: #4353b0;
+}
+
+#buttonGroup {
+  margin-top: 10px;
+}
+
+#commentList {
+  margin-top: 20px;
+}
+
+.comment {
+  background-color: #fff;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  margin-left: 10px;
+}
+
+#tagContainer {
+  margin-top: 10px;
+}
+
+#tagInput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#testimonyTitle {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+#testimonyBox {
+  background-color: #fff;
+  border: 1px solid #546bd6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+#testimonyText {
+  margin: 0;
+  padding: 0;
+}
+
+#testimonyAuthor {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.hero {
+  margin-top: 100px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  animation: fadeIn 1.5s ease-in-out;
+  text-align: center;
+}
+
+#joinButton {
+  animation: bounce 2s infinite;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }

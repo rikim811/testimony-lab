@@ -22,6 +22,7 @@
         <input type="text" id="username" placeholder="Username" required>
         <small id="usernameAvailability"></small>
         <input type="email" id="email" placeholder="Email" required>
+        <small id="emailAvailability"></small>
         <input type="text" id="name" placeholder="Name" required>
         <small id="nameInappropriate"></small>
         <input type="password" id="password" placeholder="Password" required>
@@ -33,6 +34,11 @@
             <li id="number">One number</li>
             <li id="length">8 characters minimum</li>
           </ul>
+        </div>
+        <label for="verificationCode">Verification Code</label>
+        <div id="verificationSection">
+          <input type="text" id="verificationCode" placeholder="Enter verification code" required>
+          <button type="button" id="sendCodeButton">Send Authentication Code</button>
         </div>
         <label for="nextStep">What would you like to do next?</label>
         <select id="nextStep" required>

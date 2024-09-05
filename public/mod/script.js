@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   auth.onAuthStateChanged((user) => {
     if (user && user.uid === userId) {
-      // Only load user data if explicitly called
+      // loadUserData(); // Only call when needed
     } else {
       alert('Access denied');
       window.location.href = '../index.html';
@@ -57,13 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
   async function searchTestimonies(query) {
     try {
       const testimoniesRef = db.collection('testimonies');
-      const querySnapshot = await testimoniesRef.get();
+      const querySnapshot = await testimoniesRef.where('words', 'array-contains', query).get();
       const results = [];
       querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        if (data.content && data.content.toLowerCase().includes(query)) {
-          results.push(data);
-        }
+        results.push(doc.data());
       });
       displaySearchResults(results);
     } catch (error) {
@@ -74,14 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function searchComments(query) {
     try {
-      const commentsRef = db.collection('comments'); // Adjust collection name as needed
-      const querySnapshot = await commentsRef.get();
+      const commentsRef = db.collection('comments');
+      const querySnapshot = await commentsRef.where('words', 'array-contains', query).get();
       const results = [];
       querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        if (data.content && data.content.toLowerCase().includes(query)) {
-          results.push(data);
-        }
+        results.push(doc.data());
       });
       displaySearchResults(results);
     } catch (error) {
@@ -123,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p><strong>Social Media:</strong> ${data.socialMedia}</p>
           <p><strong>Tags:</strong> ${data.tags ? data.tags.join(', ') : ''}</p>
           <button onclick="deleteUser('${data.id}')">Delete/Ban User</button>
-          <button onclick="location.href='/profile/${data.username}'">View Profile</button>
-                    <button onclick="location.href='/testimony/${data.username}'">View Testimony</button>
+          <button onclick="viewProfile('${data.username}')">View Profile</button>
+          <button onclick="viewTestimony('${data.username}')">View Testimony</button>
         `;
         searchResults.appendChild(resultItem);
       });
@@ -142,5 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error deleting user:', error);
       alert('Error deleting user. Please try again.');
     }
+  }
+
+  function viewProfile(username) {
+    window.location.href = `/profile/${username}`;
+  }
+
+  function viewTestimony(username) {
+    window.location.href = `/testimony/${username}`;
   }
 });
